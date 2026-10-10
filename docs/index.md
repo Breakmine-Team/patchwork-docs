@@ -1,17 +1,9 @@
-# Welcome to ProperDocs
+# Patchwork
 
-For full documentation visit [properdocs.org](https://properdocs.org).
+**Patchwork** is an advanced mod loading framework initially created by [SpinningCubes](https://github.com/spinning-cubes). It is specifically designed to expand and extend the capabilities of Breakmine; providing modders with the systems needed to create complex, feature-rich additions and custom functionality that go beyond the standard gameplay.
 
-## Commands
+!!! warning "Under Development"
 
-* `properdocs new [dir-name]` - Create a new project.
-* `properdocs serve` - Start the live-reloading docs server.
-* `properdocs build` - Build the documentation site.
-* `properdocs -h` - Print help message and exit.
-
-## Project layout
-
-    properdocs.yml # The configuration file.
-    docs/
-        index.md   # The documentation homepage.
-        ...        # Other markdown pages, images and other files.
+    Both Patchwork and its documentation are currently under active development.
+    
+    As new updates are introduced to Patchwork, these pages will be updated to match. Please expect occasional issues, incomplete sections, or temporary inconsistencies as the software and reference materials evolve alongside each other.
