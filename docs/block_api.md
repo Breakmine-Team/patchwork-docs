@@ -57,7 +57,7 @@ Sets the block's sound. Currently loaded sounds:
 ### `bool canCastAmbientOcclusion()`
 Returns whether this block can cast Ambient Occlusion on neighboring Blocks.
 
-### `bool onRender(world, x, y, z, blockRenderer)`
+### `bool onRender(world, x, y, z, blockRenderer)` [|octicons-history-24||v1.3.2|]
 Called upon render of this Block by Block Renderer; returning `true` allows for overriding the block's rendering logic.
 
 ### `bool canInteract()`
@@ -172,7 +172,7 @@ Called when a Player right-clicks an Item.
 Helper method to perform raytracing against a specific Bounding Box relative to world coordinates.
 
 ### `Block setHardness(hardness)`
-Sets the Block hardness and returns this for chaining.
+Sets the Block hardness and returns `this` for chaining.
 
 ### `bool shouldRenderFace(world, x, y, z, face)`
 Returns whether the specified face should be rendered.
@@ -186,10 +186,11 @@ Retrieves a registered Block instance by its ID.
     These methods and properties are deprecated; usage isn't recommended.
 
 ### `bool isHalf(world, x, y, z)`
+> Use a custom `.boundingBox` instead.
 
 Returns whether the block occupies half height (like slabs).
 
 ### `bool .noFaceCull`
-> **Deprecated**: Use `isTranslucent()` instead.
+> Use `isTranslucent()` instead.
 
 Tells other blocks to not cull their faces when touching this block.
