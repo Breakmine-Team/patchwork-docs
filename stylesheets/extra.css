@@ -1,0 +1,55 @@
+.p-badge-container {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: 6px;
+    border: 1px solid rgba(0, 186, 214, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    background: transparent !important;
+}
+
+.p-badge-label,
+.p-badge-value {
+    padding: 2px 6px;
+    display: inline-block;
+    line-height: 1.2;
+    color: rgb(0, 185, 214);
+}
+
+.p-badge-label {
+    background-color: rgba(0, 186, 214, 0.1);
+}
+
+.p-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 6px;
+    background-color: rgba(0, 186, 214, 0.1);
+    align-self: stretch;
+}
+
+.p-badge-icon svg {
+    width: 15px !important;
+    fill: rgb(0, 185, 214) !important;
+}
+
+.p-badge-icon + .p-badge-label {
+    padding-left: 4px;
+}
+
+.p-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    background-color: rgba(0, 186, 214, 0.1);
+    align-self: stretch;
+}
+
+.p-badge-icon + .p-badge-value {
+    border-left: 1px solid rgba(0, 186, 214, 0.1);
+}
