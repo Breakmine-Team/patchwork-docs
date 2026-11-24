@@ -1,0 +1,2116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../item_tool_api/">
+      
+      
+        <link rel="next" href="../patching_api/">
+      
+      
+        
+      
+      
+      
+        
+          
+        
+        <link rel="alternate" type="text/markdown" href="https://github.com/Breakmine-Team/patchwork-docs/raw/master/docs/API/mod_api.md">
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.2.3">
+    
+    
+      
+        <title>ModAPI - Patchwork Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.de7f2082.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a45159b5.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/core/core.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Patchwork Docs" class="md-header__button md-logo" aria-label="Patchwork Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Patchwork Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ModAPI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result md-search-result--pagefind" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Breakmine-Team/patchwork-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patchwork-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Patchwork Docs" class="md-nav__button md-logo" aria-label="Patchwork Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Patchwork Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Breakmine-Team/patchwork-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patchwork-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patchwork
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../block_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item_edible_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ItemEdible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item_tool_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ItemTool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ModAPI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ModAPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minecraft-minecraft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minecraft .minecraft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World .world
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-modid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        string .modId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-isserver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool .isServer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-registercommandname-usage-description-execute-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry registerCommand(name, usage, description, execute, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregistercommandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterCommand(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrynull-getcommandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry|null getCommand(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#render-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Render hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-registerrenderhookhook-fn-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle registerRenderHook(hook, fn, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisterrenderhookhook-handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterRenderHook(hook, handle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keybinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keybinds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keybinds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-registerkeybindid-name-defaultkey-onpress-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry registerKeybind(id, name, defaultKey, onPress, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisterkeybindid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterKeybind(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrynull-getkeybindid-stringnull-getkeybindkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry|null getKeybind(id) / string|null getKeybindKey(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlay text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-registeroverlaytextfn-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle registerOverlayText(fn, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisteroverlaytexthandle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterOverlayText(handle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-registerblockactionaction-fn-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle registerBlockAction(action, fn, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisterblockactionaction-handle-bool-hasblockactionaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterBlockAction(action, handle) / bool hasBlockAction(action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-emitblockactionaction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool emitBlockAction(action, data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#promisevalue-savejsonkey-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;Value&gt; saveJson(key, value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisevaluenull-loadjsonkey-fallback-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;Value|null&gt; loadJson(key, fallback = null)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisebool-deletejsonkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;bool&gt; deleteJson(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisestring-listjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;string[]&gt; listJson()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-registerserviceserviceid-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service registerService(serviceId, service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servicenull-getserviceserviceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service|null getService(serviceId)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-creative-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom creative tabs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom creative tabs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab-registercustomtabname-iconblockid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tab registerCustomTab(name, iconBlockId)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bool-sendmodmessagepayload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool sendModMessage(payload)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#texture-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Texture resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modid-texturename-null-resolvetexturekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        { modId, textureName }|null resolveTexture(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-patching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File patching
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File patching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-patchfilefile-fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle patchFile(file, fn)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisemodule-loadfilemodulefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;Module&gt; loadFileModule(file)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-listpatchablefiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        string[] listPatchableFiles()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logargs-warnargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log(...args) / warn(...args)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patching_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../world_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example Mod
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Example Mod
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Example%20Mod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About This Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Example%20Mod/packaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packaging &amp; Distribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Example%20Mod/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setting Up Your First Mod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minecraft-minecraft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minecraft .minecraft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World .world
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-modid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        string .modId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-isserver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool .isServer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-registercommandname-usage-description-execute-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry registerCommand(name, usage, description, execute, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregistercommandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterCommand(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrynull-getcommandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry|null getCommand(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#render-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Render hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-registerrenderhookhook-fn-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle registerRenderHook(hook, fn, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisterrenderhookhook-handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterRenderHook(hook, handle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keybinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keybinds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keybinds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-registerkeybindid-name-defaultkey-onpress-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry registerKeybind(id, name, defaultKey, onPress, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisterkeybindid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterKeybind(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrynull-getkeybindid-stringnull-getkeybindkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry|null getKeybind(id) / string|null getKeybindKey(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlay text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-registeroverlaytextfn-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle registerOverlayText(fn, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisteroverlaytexthandle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterOverlayText(handle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-registerblockactionaction-fn-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle registerBlockAction(action, fn, options = {})
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-unregisterblockactionaction-handle-bool-hasblockactionaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool unregisterBlockAction(action, handle) / bool hasBlockAction(action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-emitblockactionaction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool emitBlockAction(action, data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#promisevalue-savejsonkey-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;Value&gt; saveJson(key, value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisevaluenull-loadjsonkey-fallback-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;Value|null&gt; loadJson(key, fallback = null)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisebool-deletejsonkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;bool&gt; deleteJson(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisestring-listjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;string[]&gt; listJson()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-registerserviceserviceid-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service registerService(serviceId, service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servicenull-getserviceserviceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service|null getService(serviceId)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-creative-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom creative tabs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom creative tabs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab-registercustomtabname-iconblockid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tab registerCustomTab(name, iconBlockId)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bool-sendmodmessagepayload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bool sendModMessage(payload)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#texture-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Texture resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modid-texturename-null-resolvetexturekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        { modId, textureName }|null resolveTexture(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-patching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File patching
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File patching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handle-patchfilefile-fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle patchFile(file, fn)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promisemodule-loadfilemodulefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promise&lt;Module&gt; loadFileModule(file)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-listpatchablefiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        string[] listPatchableFiles()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logargs-warnargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log(...args) / warn(...args)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              
+              
+              <article class="md-content__inner md-typeset" data-pagefind-body>
+                
+                  
+  
+  
+
+
+<h1 id="modapi">ModAPI</h1>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-24'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-11-24T22:32:51+00:00'>2026-11-24</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-24'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-24T22:32:51+00:00'>2026-11-24</time></span></div><div class='dd-right'><span class='material-icons' data-icon='doc_author'></span><div class='author-group'><div class='avatar-wrapper' data-name='Spinning Cubes' data-tippy-content data-tippy-raw='<a href="mailto:spiin100@outlook.com">Spinning Cubes</a>'><span class='avatar-text'></span><img class='avatar' data-src='' data-email='spiin100@outlook.com' /></div></div></div></div></div>
+
+<p>Minimum Patchwork: <span class="p-badge-container"><span class="p-badge-icon"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.998 2.5A9.5 9.5 0 0 0 3.378 8H5.75a.75.75 0 0 1 0 1.5H2a1 1 0 0 1-1-1V4.75a.75.75 0 0 1 1.5 0v1.697A11 11 0 0 1 11.998 1C18.074 1 23 5.925 23 12s-4.926 11-11.002 11C6.014 23 1.146 18.223 1 12.275a.75.75 0 0 1 1.5-.037 9.5 9.5 0 0 0 9.498 9.262c5.248 0 9.502-4.253 9.502-9.5s-4.254-9.5-9.502-9.5"/><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315z"/></svg></span></span><span class="p-badge-value">v1.1.0</span></span></p>
+<details class="info">
+<summary>Under Development</summary>
+<p>Both Patchwork and its documentation are currently under active development.</p>
+<p>As new updates are introduced to Patchwork, these pages will be updated to match. Please expect occasional issues, incomplete sections, or temporary inconsistencies as the software and reference materials evolve alongside each other.</p>
+</details>
+<p>Every mod receives a <strong>ModAPI</strong> object, scoped to the mod's ID. It is passed to <code>ModLoad.onLoad</code> as the third argument (<code>modLoader</code>) and is also available as <code>ModAPI</code> inside block, item, GUI, command and tab class files.</p>
+<p>Anything registered through ModAPI is <strong>tracked per mod</strong>: when the mod is disabled, reloaded or uninstalled, all of its registrations (including file patches) are removed automatically.</p>
+<hr />
+<h2 id="properties">Properties</h2>
+<h3 id="minecraft-minecraft"><code>Minecraft .minecraft</code></h3>
+<p>The running Minecraft client instance.</p>
+<h3 id="world-world"><code>World .world</code></h3>
+<p>Shortcut for <code>ModAPI.minecraft.world</code>.</p>
+<h3 id="string-modid"><code>string .modId</code></h3>
+<p>The ID of the mod this API instance belongs to.</p>
+<h3 id="bool-isserver"><code>bool .isServer</code></h3>
+<p>Always <code>false</code> on the client.</p>
+<hr />
+<h2 id="commands">Commands</h2>
+<h3 id="entry-registercommandname-usage-description-execute-options"><code>Entry registerCommand(name, usage, description, execute, options = {})</code></h3>
+<p>Registers a chat command. <code>execute(minecraft, args)</code> should return <code>true</code> when the command was handled. <code>options</code> may include <code>{ modId, opOnly }</code>. Commands appear in <code>/help</code> and chat autocomplete and work on client and server alike.</p>
+<h3 id="bool-unregistercommandname"><code>bool unregisterCommand(name)</code></h3>
+<p>Removes a command previously registered by this mod.</p>
+<h3 id="entrynull-getcommandname"><code>Entry|null getCommand(name)</code></h3>
+<p>Looks up any registered command by name.</p>
+<hr />
+<h2 id="render-hooks">Render hooks</h2>
+<h3 id="handle-registerrenderhookhook-fn-options"><code>Handle registerRenderHook(hook, fn, options = {})</code></h3>
+<p>Calls <code>fn(context)</code> at a specific point in the render loop. <code>context</code> contains <code>minecraft</code>, the relevant <code>worldRenderer</code>, and hook-specific payload (e.g. <code>partialTicks</code>). <code>options.priority</code> sorts hooks (lower runs first).</p>
+<p>Available hooks:</p>
+<ul>
+<li><code>beforeRender</code></li>
+<li><code>renderChunks</code></li>
+<li><code>renderSky</code></li>
+<li><code>renderBlockHitBox</code></li>
+<li><code>afterRender</code></li>
+<li><code>onTick</code></li>
+</ul>
+<h3 id="bool-unregisterrenderhookhook-handle"><code>bool unregisterRenderHook(hook, handle)</code></h3>
+<p>Removes a hook. Accepts the handle returned by <code>registerRenderHook</code>, or the original function.</p>
+<hr />
+<h2 id="keybinds">Keybinds</h2>
+<h3 id="entry-registerkeybindid-name-defaultkey-onpress-options"><code>Entry registerKeybind(id, name, defaultKey, onPress, options = {})</code></h3>
+<p>Registers a keybind shown in the controls settings. <code>id</code> is 1-64 letters, numbers, <code>_</code> or <code>-</code>; <code>defaultKey</code> is a key string or <code>null</code>; <code>onPress({ key, keybind, minecraft })</code> fires when the key is pressed. <code>options</code> may include <code>onRelease</code>, <code>allowRepeat</code> and <code>category</code>.</p>
+<p>The descriptor-object form is also supported: <code>registerKeybind({ id, name, defaultKey, onPress, onRelease })</code>.</p>
+<h3 id="bool-unregisterkeybindid"><code>bool unregisterKeybind(id)</code></h3>
+<p>Removes a keybind registered by this mod.</p>
+<h3 id="entrynull-getkeybindid-stringnull-getkeybindkeyid"><code>Entry|null getKeybind(id)</code> / <code>string|null getKeybindKey(id)</code></h3>
+<p>Look up a keybind, or the key the user currently has bound to it.</p>
+<hr />
+<h2 id="overlay-text">Overlay text</h2>
+<h3 id="handle-registeroverlaytextfn-options"><code>Handle registerOverlayText(fn, options = {})</code></h3>
+<p>Registers a HUD overlay provider. <code>fn(context)</code> is called every frame the overlay is drawn with a context containing:</p>
+<ul>
+<li><code>context.text(value, x, y, options)</code> — draw one or more <code>\n</code>-separated lines; <code>options</code> supports <code>scale</code>, <code>color</code> (hex number or CSS string), <code>shadow</code>, <code>align</code> (<code>'left' | 'center' | 'right'</code>), <code>background</code> and <code>padding</code>.</li>
+<li><code>context.tooltip(value, x, y, options)</code> — draw a Minecraft-style tooltip box.</li>
+<li><code>context.rect(left, top, right, bottom, color, alpha)</code> — draw a filled rectangle.</li>
+<li><code>context.measure(value, options)</code> — measure text without drawing.</li>
+<li><code>context.width</code> / <code>context.height</code> — overlay dimensions; <code>context.minecraft</code>.</li>
+</ul>
+<p>The alias <code>onOverlayText(fn)</code> does the same.</p>
+<h3 id="bool-unregisteroverlaytexthandle"><code>bool unregisterOverlayText(handle)</code></h3>
+<p>Removes an overlay provider.</p>
+<hr />
+<h2 id="block-actions">Block actions</h2>
+<p>A lightweight event bus for block interactions.</p>
+<h3 id="handle-registerblockactionaction-fn-options"><code>Handle registerBlockAction(action, fn, options = {})</code></h3>
+<p>Registers a handler for a named action. Alias: <code>onBlockAction</code>.</p>
+<h3 id="bool-unregisterblockactionaction-handle-bool-hasblockactionaction"><code>bool unregisterBlockAction(action, handle)</code> / <code>bool hasBlockAction(action)</code></h3>
+<p>Remove or query a handler.</p>
+<h3 id="bool-emitblockactionaction-data"><code>bool emitBlockAction(action, data)</code></h3>
+<p>Fires all handlers registered for <code>action</code>.</p>
+<hr />
+<h2 id="json-storage">JSON storage</h2>
+<p>Persistent JSON files scoped to your mod, stored under <code>mod_data/&lt;modId&gt;/</code>:</p>
+<h3 id="promisevalue-savejsonkey-value"><code>Promise&lt;Value&gt; saveJson(key, value)</code></h3>
+<p>Saves a JSON-serializable value. <code>key</code> must match <code>[A-Za-z0-9._-]{1,64}</code>.</p>
+<h3 id="promisevaluenull-loadjsonkey-fallback-null"><code>Promise&lt;Value|null&gt; loadJson(key, fallback = null)</code></h3>
+<p>Loads a value, returning <code>fallback</code> when missing or invalid.</p>
+<h3 id="promisebool-deletejsonkey"><code>Promise&lt;bool&gt; deleteJson(key)</code></h3>
+<p>Deletes a stored file; resolves <code>true</code> when it existed.</p>
+<h3 id="promisestring-listjson"><code>Promise&lt;string[]&gt; listJson()</code></h3>
+<p>Lists the keys currently stored by this mod.</p>
+<hr />
+<h2 id="services">Services</h2>
+<p>Share objects between mods.</p>
+<h3 id="service-registerserviceserviceid-service"><code>Service registerService(serviceId, service)</code></h3>
+<p>Registers a shared object under an ID.</p>
+<h3 id="servicenull-getserviceserviceid"><code>Service|null getService(serviceId)</code></h3>
+<p>Retrieves a service registered by any mod.</p>
+<hr />
+<h2 id="custom-creative-tabs">Custom creative tabs</h2>
+<h3 id="tab-registercustomtabname-iconblockid"><code>Tab registerCustomTab(name, iconBlockId)</code></h3>
+<p>Registers a creative inventory tab shown in the creative screen. Blocks and items can opt in by setting <code>inventoryTab</code> to the tab's name (string form).</p>
+<hr />
+<h2 id="networking">Networking</h2>
+<h3 id="bool-sendmodmessagepayload"><code>bool sendModMessage(payload)</code></h3>
+<p>Sends <code>{ type: 'modMessage', modId, payload }</code> to the server through the active network connection. Returns <code>false</code> when not connected. Services registered with a <code>handleNetworkMessage(payload, networkManager)</code> method receive mod messages on both ends.</p>
+<hr />
+<h2 id="texture-resolution">Texture resolution</h2>
+<h3 id="modid-texturename-null-resolvetexturekey"><code>{ modId, textureName }|null resolveTexture(key)</code></h3>
+<p>Resolves a <code>modid:name</code> texture key against installed mods.</p>
+<hr />
+<h2 id="file-patching">File patching</h2>
+<h3 id="handle-patchfilefile-fn"><code>Handle patchFile(file, fn)</code></h3>
+<p>Patches any game file under <code>src/js/</code> at runtime. See <a href="../patching_api/">Patching</a>.</p>
+<h3 id="promisemodule-loadfilemodulefile"><code>Promise&lt;Module&gt; loadFileModule(file)</code></h3>
+<p>Loads a game file's live module namespace without patching it.</p>
+<h3 id="string-listpatchablefiles"><code>string[] listPatchableFiles()</code></h3>
+<p>Lists every game file available for patching in the current build.</p>
+<hr />
+<h2 id="utilities">Utilities</h2>
+<h3 id="logargs-warnargs"><code>log(...args)</code> / <code>warn(...args)</code></h3>
+<p>Console logging prefixed with <code>[Patchwork] [&lt;modId&gt;]</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+          
+          
+        
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "code": null, "features": ["content.code.copy", "content.action.agents"], "search": {"options": {"baseUrl": "../..", "bundleUrl": "../../search/", "highlight": false, "searchOptions": {}}, "provider": "pagefind"}, "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.collapse": "Collapse", "code.download": "Download", "code.expand": "Expand remaining # lines", "code.select": "Toggle line selection", "search.offline": "Switch to Lunr for offline search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50eacf89.min.js"></script>
+      
+        <script src="../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../assets/document_dates/core/avatar.js"></script>
+      
+        <script src="../../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../assets/document_dates/core/core.js"></script>
+      
+    
+  </body>
+</html>
