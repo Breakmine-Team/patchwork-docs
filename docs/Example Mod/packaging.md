@@ -59,6 +59,9 @@ export default class ModData {
 
 ## `.jph` patch packages
 
+!!! warning
+    JPH mods are under development and must be turned on manually in the Experiments screen.
+
 A `.jph` — a **J**avascript **P**atc**H** package — is a single JSON document for distributing pure code patches, with no assets. It is installed through the same Mods screen as a normal mod; Patchwork converts it into a regular mod folder with `ModData.json` and one `patches/<path>.js` file per target.
 
 ```json
